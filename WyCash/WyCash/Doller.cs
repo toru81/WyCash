@@ -11,7 +11,7 @@ namespace WyCash
             Amount = amount;
         }
 
-        public int Amount { get; set; }
+        public int Amount { get; }
 
         public Doller Times(int multiplier)
         {
