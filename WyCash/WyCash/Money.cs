@@ -15,6 +15,10 @@ namespace WyCash
 
         public override bool Equals(object obj)
         {
+            if (obj.GetType() != this.GetType())
+            {
+                return false;
+            }
             return Amount == ((Money)obj).Amount;
         }
     }
