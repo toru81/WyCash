@@ -17,5 +17,10 @@ namespace WyCash
         {
             return new Doller(Amount * multiplier);
         }
+
+        public override bool Equals(object obj)
+        {
+            return Amount == ((Doller)obj).Amount;
+        }
     }
 }
