@@ -16,5 +16,12 @@ namespace WyCashTest
             product = five.Times(3);
             Assert.Equal(15, product.Amount);
         }
+
+        [Fact]
+        public void TestEquality()
+        {
+            Assert.True(new Doller(5).Equals(new Doller(5)));
+            Assert.False(new Doller(5).Equals(new Doller(6)));
+        }
     }
 }
