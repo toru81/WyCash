@@ -10,11 +10,9 @@ namespace WyCashTest
         public void TestMultiplication()
         {
             Doller five = new Doller(5);
-            Doller product = five.Times(2);
-            Assert.Equal(10, product.Amount);
 
-            product = five.Times(3);
-            Assert.Equal(15, product.Amount);
+            Assert.Equal(new Doller(10), five.Times(2));
+            Assert.Equal(new Doller(15), five.Times(3));
         }
 
         [Fact]
