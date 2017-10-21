@@ -20,6 +20,9 @@ namespace WyCashTest
         {
             Assert.True(new Doller(5).Equals(new Doller(5)));
             Assert.False(new Doller(5).Equals(new Doller(6)));
+
+            Assert.True(new Franc(5).Equals(new Franc(5)));
+            Assert.False(new Franc(5).Equals(new Franc(6)));
         }
 
         [Fact]

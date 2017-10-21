@@ -4,23 +4,16 @@ using System.Text;
 
 namespace WyCash
 {
-    public class Doller
+    public class Doller : Money
     {
         public Doller(int amount)
+            : base(amount)
         {
-            Amount = amount;
         }
-
-        public int Amount { get; }
 
         public Doller Times(int multiplier)
         {
             return new Doller(Amount * multiplier);
-        }
-
-        public override bool Equals(object obj)
-        {
-            return Amount == ((Doller)obj).Amount;
         }
     }
 }
