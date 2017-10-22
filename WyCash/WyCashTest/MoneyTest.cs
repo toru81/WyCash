@@ -34,9 +34,12 @@ namespace WyCashTest
         [Fact]
         public void TestSimpleAddition()
         {
-            Money sum = Money.Doller(5).Plus(Money.Doller(5));
+            var five = Money.Doller(5);
+            var sum = five.Plus(five);
+            var bank = new Bank();
+            Money reduced = bank.Reduce(sum, "USD");
 
-            Assert.Equal(Money.Doller(10), sum);
+            Assert.Equal(Money.Doller(10), reduced);
         }
     }
 }
