@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WyCash
 {
-    public class Money
+    public abstract class Money
     {
         public int Amount { get; }
 
@@ -21,5 +21,17 @@ namespace WyCash
             }
             return Amount == ((Money)obj).Amount;
         }
+
+        public static Money Doller(int amount)
+        {
+            return new Doller(amount);
+        }
+
+        public static Money Franc(int amount)
+        {
+            return new Franc(amount);
+        }
+
+        public abstract Money Times(int multiplier);
     }
 }

@@ -9,31 +9,31 @@ namespace WyCashTest
         [Fact]
         public void TestMultiplication()
         {
-            Doller five = new Doller(5);
+            var five = Money.Doller(5);
 
-            Assert.Equal(new Doller(10), five.Times(2));
-            Assert.Equal(new Doller(15), five.Times(3));
+            Assert.Equal(Money.Doller(10), five.Times(2));
+            Assert.Equal(Money.Doller(15), five.Times(3));
         }
 
         [Fact]
         public void TestEquality()
         {
-            Assert.True(new Doller(5).Equals(new Doller(5)));
-            Assert.False(new Doller(5).Equals(new Doller(6)));
+            Assert.True(Money.Doller(5).Equals(Money.Doller(5)));
+            Assert.False(Money.Doller(5).Equals(Money.Doller(6)));
 
-            Assert.True(new Franc(5).Equals(new Franc(5)));
-            Assert.False(new Franc(5).Equals(new Franc(6)));
+            Assert.True(Money.Franc(5).Equals(Money.Franc(5)));
+            Assert.False(Money.Franc(5).Equals(Money.Franc(6)));
 
-            Assert.False(new Doller(5).Equals(new Franc(5)));
+            Assert.False(Money.Doller(5).Equals(Money.Franc(5)));
         }
 
         [Fact]
         public void TestFrancMultiplication()
         {
-            Franc five = new Franc(5);
+            var five = new Franc(5);
 
-            Assert.Equal(new Franc(10), five.Times(2));
-            Assert.Equal(new Franc(15), five.Times(3));
+            Assert.Equal(Money.Franc(10), five.Times(2));
+            Assert.Equal(Money.Franc(15), five.Times(3));
         }
 
     }
