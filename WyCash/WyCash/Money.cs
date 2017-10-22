@@ -39,6 +39,11 @@ namespace WyCash
             return new Money(Amount * multiplier, Currency);
         }
 
+        public Money Plus(Money money)
+        {
+            return new Money(Amount + money.Amount, Currency);
+        }
+
         public override string ToString()
         {
             return $"{Amount} {Currency}";

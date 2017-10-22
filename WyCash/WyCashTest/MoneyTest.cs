@@ -30,5 +30,13 @@ namespace WyCashTest
             Assert.Equal("USD", Money.Doller(1).Currency);
             Assert.Equal("CHF", Money.Franc(1).Currency);
         }
+
+        [Fact]
+        public void TestSimpleAddition()
+        {
+            Money sum = Money.Doller(5).Plus(Money.Doller(5));
+
+            Assert.Equal(Money.Doller(10), sum);
+        }
     }
 }
