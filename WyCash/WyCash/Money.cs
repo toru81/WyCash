@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WyCash
 {
-    public class Money
+    public class Money : Expression
     {
         public int Amount { get; }
         public string Currency { get; }
@@ -37,6 +37,11 @@ namespace WyCash
         public Money Times(int multiplier)
         {
             return new Money(Amount * multiplier, Currency);
+        }
+
+        public Expression Plus(Money money)
+        {
+            return new Money(Amount + money.Amount, Currency);
         }
 
         public override string ToString()
