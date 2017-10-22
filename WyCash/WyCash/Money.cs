@@ -26,12 +26,12 @@ namespace WyCash
 
         public static Money Doller(int amount)
         {
-            return new Doller(amount, "USD");
+            return new Money(amount, "USD");
         }
 
         public static Money Franc(int amount)
         {
-            return new Franc(amount, "CHF");
+            return new Money(amount, "CHF");
         }
 
         public Money Times(int multiplier)

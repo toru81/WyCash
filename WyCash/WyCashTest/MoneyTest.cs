@@ -21,19 +21,7 @@ namespace WyCashTest
             Assert.True(Money.Doller(5).Equals(Money.Doller(5)));
             Assert.False(Money.Doller(5).Equals(Money.Doller(6)));
 
-            Assert.True(Money.Franc(5).Equals(Money.Franc(5)));
-            Assert.False(Money.Franc(5).Equals(Money.Franc(6)));
-
             Assert.False(Money.Doller(5).Equals(Money.Franc(5)));
-        }
-
-        [Fact]
-        public void TestFrancMultiplication()
-        {
-            var five = Money.Franc(5);
-
-            Assert.Equal(Money.Franc(10), five.Times(2));
-            Assert.Equal(Money.Franc(15), five.Times(3));
         }
 
         [Fact]
@@ -41,12 +29,6 @@ namespace WyCashTest
         {
             Assert.Equal("USD", Money.Doller(1).Currency);
             Assert.Equal("CHF", Money.Franc(1).Currency);
-        }
-
-        [Fact]
-        public void TestDifferenceClassEquality()
-        {
-            Assert.Equal(new Money(1, "USD"), Money.Doller(1));
         }
     }
 }
