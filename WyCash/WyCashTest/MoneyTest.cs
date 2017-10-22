@@ -42,5 +42,11 @@ namespace WyCashTest
             Assert.Equal("USD", Money.Doller(1).Currency);
             Assert.Equal("CHF", Money.Franc(1).Currency);
         }
+
+        [Fact]
+        public void TestDifferenceClassEquality()
+        {
+            Assert.Equal(new Money(1, "USD"), Money.Doller(1));
+        }
     }
 }

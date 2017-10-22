@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WyCash
 {
-    public abstract class Money
+    public class Money
     {
         public int Amount { get; }
         public string Currency { get; }
@@ -17,7 +17,7 @@ namespace WyCash
 
         public override bool Equals(object obj)
         {
-            if (obj.GetType() != this.GetType())
+            if (((Money)obj).Currency != Currency)
             {
                 return false;
             }
@@ -34,6 +34,14 @@ namespace WyCash
             return new Franc(amount, "CHF");
         }
 
-        public abstract Money Times(int multiplier);
+        public Money Times(int multiplier)
+        {
+            return new Money(Amount * multiplier, Currency);
+        }
+
+        public override string ToString()
+        {
+            return $"{Amount} {Currency}";
+        }
     }
 }
