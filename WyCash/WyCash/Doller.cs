@@ -11,7 +11,7 @@ namespace WyCash
         {
         }
 
-        public Doller Times(int multiplier)
+        public override Money Times(int multiplier)
         {
             return new Doller(Amount * multiplier);
         }
