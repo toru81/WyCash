@@ -6,14 +6,14 @@ namespace WyCash
 {
     public class Doller : Money
     {
-        public Doller(int amount)
-            : base(amount)
+        public Doller(int amount, string currency)
+            : base(amount, currency)
         {
         }
 
         public override Money Times(int multiplier)
         {
-            return new Doller(Amount * multiplier);
+            return Money.Doller(Amount * multiplier);
         }
     }
 }

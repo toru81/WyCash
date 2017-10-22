@@ -7,10 +7,12 @@ namespace WyCash
     public abstract class Money
     {
         public int Amount { get; }
+        public string Currency { get; }
 
-        public Money(int amount)
+        public Money(int amount, string currency)
         {
             Amount = amount;
+            Currency = currency;
         }
 
         public override bool Equals(object obj)
@@ -24,12 +26,12 @@ namespace WyCash
 
         public static Money Doller(int amount)
         {
-            return new Doller(amount);
+            return new Doller(amount, "USD");
         }
 
         public static Money Franc(int amount)
         {
-            return new Franc(amount);
+            return new Franc(amount, "CHF");
         }
 
         public abstract Money Times(int multiplier);
