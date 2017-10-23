@@ -41,5 +41,35 @@ namespace WyCashTest
 
             Assert.Equal(Money.Doller(10), reduced);
         }
+
+        [Fact]
+        public void TestPlusReturnsSum()
+        {
+            var five = Money.Doller(5);
+            Expression result = five.Plus(five);
+            Sum sum = (Sum)result;
+
+            Assert.Equal(five, sum.Augend);
+            Assert.Equal(five, sum.Addend);
+        }
+
+        [Fact]
+        public void TestReduceSum()
+        {
+            Expression sum = new Sum(Money.Doller(3), Money.Doller(4));
+            var bank = new Bank();
+            Money result = bank.Reduce(sum, "USD");
+
+            Assert.Equal(Money.Doller(7), result);
+        }
+
+        [Fact]
+        public void TestReduceMoney()
+        {
+            var bank = new Bank();
+            Money result = bank.Reduce(Money.Doller(1), "USD");
+
+            Assert.Equal(Money.Doller(1), result);
+        }
     }
 }

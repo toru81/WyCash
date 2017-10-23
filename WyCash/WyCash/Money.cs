@@ -39,9 +39,14 @@ namespace WyCash
             return new Money(Amount * multiplier, Currency);
         }
 
-        public Expression Plus(Money money)
+        public Expression Plus(Money addend)
         {
-            return new Money(Amount + money.Amount, Currency);
+            return new Sum(this, addend);
+        }
+
+        public Money Reduce(string to)
+        {
+            return this;
         }
 
         public override string ToString()
