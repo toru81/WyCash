@@ -71,5 +71,21 @@ namespace WyCashTest
 
             Assert.Equal(Money.Doller(1), result);
         }
+
+        [Fact]
+        public void TestReduceMoneyDifferenceCurrency()
+        {
+            var bank = new Bank();
+            bank.AddRate("CHF", "USD", 2);
+            Money result = bank.Reduce(Money.Franc(2), "USD");
+
+            Assert.Equal(Money.Doller(1), result);
+        }
+
+        [Fact]
+        public void TestIdentityRate()
+        {
+            Assert.Equal(1, new Bank().Rate("USD", "USD"));
+        }
     }
 }
