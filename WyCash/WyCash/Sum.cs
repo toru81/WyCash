@@ -24,5 +24,10 @@ namespace WyCash
             return new Money(amount, to);
         }
 
+        public Expression Times(int multiplier)
+        {
+            return new Sum(Augend.Times(multiplier), Addend.Times(multiplier));
+            throw new NotImplementedException();
+        }
     }
 }
