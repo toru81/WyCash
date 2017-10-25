@@ -87,5 +87,18 @@ namespace WyCashTest
         {
             Assert.Equal(1, new Bank().Rate("USD", "USD"));
         }
+
+        [Fact]
+        public void TestMixedAddition()
+        {
+            Expression fiveBucks = Money.Doller(5);
+            Expression tenFrancs = Money.Franc(10);
+
+            var bank = new Bank();
+            bank.AddRate("CHF", "USD", 2);
+            var result = bank.Reduce(fiveBucks.Plus(tenFrancs), "USD");
+            Assert.Equal(Money.Doller(10), result);
+        }
+
     }
 }
