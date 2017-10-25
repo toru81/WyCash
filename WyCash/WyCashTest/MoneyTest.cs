@@ -100,5 +100,18 @@ namespace WyCashTest
             Assert.Equal(Money.Doller(10), result);
         }
 
+        [Fact]
+        public void TestSumPlusMoney()
+        {
+            Expression fiveBucks = Money.Doller(5);
+            Expression tenFrancs = Money.Franc(10);
+
+            var bank = new Bank();
+            bank.AddRate("CHF", "USD", 2);
+            Expression sum = new Sum(fiveBucks, tenFrancs).Plus(fiveBucks);
+
+            var result = bank.Reduce(sum, "USD");
+            Assert.Equal(Money.Doller(15), result);
+        }
     }
 }
